@@ -49,9 +49,9 @@
 (firsts (quote (((five plums) four) (eleven green oranges) ((no) more))))
 ;
 ; ----------------------------------------------------------------------------.
-;; the third commandment                                                      ;
-;; when building a list, describe the first typical element, and then cons it ;
-;; into the natural recursion                                                 ;
+; ; the third commandment                                                     ;
+; ; when building a list, describe the first typical element, and then cons it;
+; ; into the natural recursion                                                ;
 ; ----------------------------------------------------------------------------.
 ; define insertR
 ;
@@ -152,10 +152,10 @@
       (else (cons (car lat) (multisutsr new old (cdr lat)))))))
 ;
 ; ----------------------------------------------------------------------------.
-;; the fourth commandment                                                    ;
-;; always change at least one arugment while recuring. it must be changed to ;
-;; be closer to termination. The changing argument must be tested in the     ;
-;; termination condition: when using cdr, test termination with null?        ;
+; ; the fourth commandment                                                    ;
+; ; always change at least one arugment while recuring. it must be changed to ;
+; ; be closer to termination. The changing argument must be tested in the     ;
+; ; termination condition: when using cdr, test termination with null?        ;
 ; ----------------------------------------------------------------------------.
 ;
 ; ok, time for dessert!
