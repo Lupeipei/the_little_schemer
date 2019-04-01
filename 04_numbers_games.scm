@@ -1,4 +1,4 @@
-; Chapter 4 Numbers Games
+; Chapter 04 Numbers Games
 ;
 ; all numbers are atoms
 ;
@@ -11,6 +11,7 @@
 ; examples of number
 ;
 (atom? (quote 14))
+;Value: #t
 
 ; define add1
 ;
@@ -21,6 +22,7 @@
 ; examples of add1
 
 (add1 (quote 67))
+;Value: 68
 
 ; define sub1
 ;
@@ -30,11 +32,15 @@
 ; examples of sub1
 ;
 (sub1 67)
+;Value: 66
+
 (sub1 5)
+;Value: 4
 
 ; examples of zero?
 ;
 (zero? 0)
+;Value: #t
 
 ; define operator +
 ;
@@ -47,6 +53,7 @@
 ;
 ; examples of +
 (+ 1 10)
+;Value: 11
 
 ; define operator -
 ;
@@ -57,12 +64,18 @@
       (else (add1 (- a (sub1 b)))))))
 ; examples of -
 (- 10 9)
+;Value: 1
 
 ; examples of tup: tup is a list of numbers
 ;
 (quote (2 11 3 79 47 6))
+;Value: (2 11 3 79 47 6)
+
 (quote (8 55 5 555))
+;Value: (8 55 5 555)
+
 (quote ())
+;Value: ()
 
 ; ----------------------------------------------------------------------------.
 ; ; the first commandment                                                     ;
@@ -83,7 +96,10 @@
 ;
 ; examples of addtup
 (addtup (quote (2 11 3 79 47 6)))
+;Value: 148
+
 (addtup (quote ()))
+;Value: 0
 
 ; ----------------------------------------------------------------------------.
 ; ; the fourth commandment                                                    ;
@@ -105,8 +121,13 @@
 ; examples of x
 ;
 (x 2 0)
+; Value: 0
+
 (x 0 2)
+; Value: 0
+
 (x 12 3)
+;Value: 36
 
 ; ----------------------------------------------------------------------------.
 ; ; the fifth commandment                                                     ;
@@ -130,7 +151,11 @@
 ; examples of tup+
 ;
 (tup+ (quote (2 3)) (quote (4 6)))
+;Value: (6 9)
+
 (tup+ (quote (3 6 9 11 4)) (quote (8 5 2 0 7)))
+;Value: (11 11 11 11 11)
+
 ; define operator >
 ;
 (define o>
@@ -168,15 +193,28 @@
       (else #t))))
 ; examples of <, >, =
 (< 2 4)
+; Value: #t
+
 (< 2 2)
+; Value: #f
+
 (< 3 2)
+; Value: #f
 
 (> 2 4)
+; Value: #f
+
 (> 2 2)
+; Value: #f
+
 (> 3 2)
+; Value: #t
 
 (= 2 4)
+; Value: #f
+
 (= 2 2)
+; Value: #t
 
 ; define operator expt
 ;
@@ -189,8 +227,13 @@
 ; examples of expt
 ;
 (expt 2 2)
-(expt 2 0)
+;Value: 4
 
+(expt 2 0)
+;Value: 1
+
+(expt 3 3)
+;Value: 27
 ; define operator quotient
 ;
 (define quotient
@@ -201,8 +244,13 @@
 ; examples of quotient
 ;
 (quotient 2 3)
+;Value: 0
+
 (quotient 12 3)
+;Value: 4
+
 (quotient 8 3)
+;Value: 2
 
 ; define length
 ;
@@ -214,7 +262,10 @@
 ; examples of length
 ;
 (length (quote (ham and cheese on rye)))
+;Value: 5
+
 (length (quote (hotdogs with mustard sauerkraut and pickles)))
+;Value: 6
 
 ; define pick
 ;
@@ -227,7 +278,10 @@
 ; examples of pick
 ;
 (pick 1 (quote (a)))
+;Value: a
+
 (pick 4 (quote (lasagna spaghetti ravioli macaroni meatball)))
+;Value: macaroni
 
 ; define rempick
 ;
@@ -239,6 +293,7 @@
 ; examples of rempick
 ;
 (rempick 3 (quote (hotdogs with hot mustard)))
+;Value: (hotdogs with mustard)
 
 ; define no-nums
 ;
@@ -251,6 +306,7 @@
 ; examples of no-nums
 ;
 (no-nums (quote (5 pears 6 prunes 9 dates)))
+;Value: (pears prunes dates)
 
 ; define all-nums
 ;
@@ -263,6 +319,7 @@
 ;
 ; examples of all-nums
 (all-nums (quote (5 pears 6 prunes 9 dates)))
+;Value: (5 6 9)
 
 ; define eqan?
 ;
@@ -275,10 +332,19 @@
 ; examples of eqan?
 ;
 (eqan? 1 2)
+;Value: #f
+
 (eqan? 2 2)
+;Value: #t
+
 (eqan? 1 (quote hi))
+;Value: #f
+
 (eqan? (quote hi) (quote wow))
+;Value: #f
+
 (eqan? (quote hi) (quote hi))
+;Value: #t
 
 ; define occur
 ;
@@ -291,8 +357,14 @@
 ; examples of occur
 ;
 (occur 1 (quote (1 2 1 3 4)))
+;Value: 2
+
 (occur (quote apple) (quote ()))
+;Value: 0
+
 (occur (quote apple) (quote (apple pear apple oranges)))
+;Value: 2
+
 ;
 ; define one?
 ;
@@ -302,7 +374,10 @@
 ; examples of one?
 
 (one? 1)
+;Value: #t
+
 (one? 7)
+;Value: #f
 
 ; rewrite rempick with one? function
 ;
@@ -311,6 +386,10 @@
     (cond
       ((one? n) (cdr lat))
       (else (cons (car lat) (rempick (sub1 n) (cdr lat)))))))
+; examples of rempick
+;
+(rempick 2 (quote (hotdogs with hot mustard)))
+;Value: (hotdogs hot mustard)
 
 ; ----------------------------------------------------------------------------.
 ; ; the first commandment                                                     ;

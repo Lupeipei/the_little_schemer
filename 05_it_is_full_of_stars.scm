@@ -1,4 +1,4 @@
-; Chapter 5 "oh my gawd": it's full of stars
+; Chapter 05 "oh my gawd": it's full of stars
 ;
 ; define atom? from chapter 02
 ;
@@ -36,8 +36,13 @@
 ; examples of rember*
 ;
 (rember* (quote cup) (quote ((coffee) cup ((tea) cup) (and (hick)) cup)))
+;Value: ((coffee) ((tea)) (and (hick)))
+
 (rember* (quote sauce) (quote (((tomato sauce)) ((bean) sauce) (and ((flying)) sauce))))
+;Value: (((tomato)) ((bean)) (and ((flying))))
+
 (rember* (quote sauce) (quote ((((tomato sauce) sauce)) ((bean) sauce) (and ((flying)) sauce))))
+;Value: ((((tomato))) ((bean)) (and ((flying))))
 
 ; define insertR*
 ;
@@ -54,8 +59,12 @@
 ;
 ; examples of insertR*
 ;
-(insertR* (quote roast) (quote chuck) (quote (how much roast)))
+(insertR* (quote roast) (quote chuck) (quote (how much chuck)))
+;Value: (how much chuck roast)
+
 (insertR* (quote roast) (quote chuck) (quote ((how much (wood)) could ((a (wood) chuck)) (((chuck))) (if (a) ((wood chuck))) could chuck wood)))
+; Value: ((how much (wood)) could ((a (wood) chuck roast)) (((chuck roast))) (if (a) ((wood chuck roast))) could chuck roast wood)
+
 ; ----------------------------------------------------------------------------.
 ; ; the first commandment                                                     ;
 ; ; (final revision)                                                          ;
@@ -98,6 +107,8 @@
 ; examples of occur*
 ;
 (occur* (quote banana) (quote ((banana) (split ((((banana ice)))(cream (banana)) sherbet)) (banana) (bread) (banana brandy))))
+;Value: 5
+
 ;
 ;
 ; define subst*
@@ -114,6 +125,7 @@
 ; examples of subst*
 ;
 (subst* (quote orange) (quote banana) (quote ((banana) (split ((((banana ice)))(cream (banana)) sherbet)) (banana) (bread) (banana brandy))))
+;Value: ((orange) (split ((((orange ice))) (cream (orange)) sherbet)) (orange) (bread) (orange brandy))
 ;
 ; define insertL*
 ;
@@ -130,6 +142,8 @@
 ;
 ; examples of insertL*
 (insertL* (quote pecker) (quote chuck) (quote ((how much (wood)) could ((a (wood) chuck)) (((chuck))) (if (a) ((wood chuck))) could chuck wood)))
+;Value: ((how much (wood)) could ((a (wood) pecker chuck)) (((pecker chuck))) (if (a) ((wood pecker chuck))) could pecker chuck wood)
+
 ;
 ; define member*
 ;
@@ -146,6 +160,7 @@
 ; examples of member*
 ;
 (member* (quote chips) (quote ((potatoes) (chips ((with)) fish) (chips))))
+;Value: #t
 ;
 ; define leftmost
 ;
@@ -159,8 +174,13 @@
 ; examples of leftmost
 ;
 (leftmost (quote ((potato) (chips ((with) fish) (chips)))))
+;Value: potato
+
 (leftmost (quote ((((hot)) (tuna (and))) cheese)))
+;Value: hot
+
 (leftmost (quote ()))
+;Value: ()
 ;
 ; define eqlist?
 ;
@@ -177,9 +197,17 @@
 ; examples of eqlist?
 ;
 (eqlist? (quote (strawberry ice cream)) (quote (strawberry ice cream)))
+;Value: #t
+
 (eqlist? (quote (strawberry ice cream)) (quote (strawberry cream ice)))
+;Value: #f
+
 (eqlist? (quote (banana ((split)))) (quote ((banana) (split))))
+;Value: #f
+
 (eqlist? (quote (beef ((sausage)) (and (soda)))) (quote (beef ((sausage)) (and (soda)))))
+;Value: #t
+
 ;
 ; define equal?
 ;
@@ -192,18 +220,23 @@
 ;
 ; rewrite eqlist? using equal?
 ;
-(define eqlist2?
+(define eqlist?
   (lambda (l1 l2)
     (cond
       ((and (null? l1) (null? l2)) #t)
       ((or (null? l1) (null? l2)) #f)
-      (else (and (equal? (car l1) (car l2)) (eqlist2? (cdr l1) (cdr l2))))
+      (else (and (equal? (car l1) (car l2)) (eqlist? (cdr l1) (cdr l2))))
       )))
 ;
 ;
-(eqlist2? (quote (strawberry ice cream)) (quote (strawberry ice cream)))
-(eqlist2? (quote (strawberry ice cream)) (quote (strawberry cream ice)))
-(eqlist2? (quote (banana ((split)))) (quote ((banana) (split))))
+(eqlist? (quote (strawberry ice cream)) (quote (strawberry ice cream)))
+;Value: #t
+
+(eqlist? (quote (strawberry ice cream)) (quote (strawberry cream ice)))
+;Value: #f
+
+(eqlist? (quote (banana ((split)))) (quote ((banana) (split))))
+;Value: #f
 ; ----------------------------------------------------------------------------.
 ; ; the sixth commandment                                                     ;
 ; ; simplify only after the function is correct.                              ;
@@ -221,4 +254,7 @@
 ; examples of rember
 ;
 (rember (quote ((tea) cup)) (quote ((coffee) cup ((tea) cup) (and (hick)) cup)))
+;Value: ((coffee) cup (and (hick)) cup)
+
 (rember (quote banana) (quote (banana (apple) orange)))
+;Value: ((apple) orange)
