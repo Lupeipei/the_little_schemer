@@ -2,7 +2,7 @@
 ;
 ; all numbers are atoms
 ;
-; define atom?
+; define atom? from chapter 02
 ;
 (define atom?
   (lambda (l)
@@ -311,3 +311,12 @@
     (cond
       ((one? n) (cdr lat))
       (else (cons (car lat) (rempick (sub1 n) (cdr lat)))))))
+
+; ----------------------------------------------------------------------------.
+; ; the first commandment                                                     ;
+; ; (first revision)                                                          ;
+; ; when recurring on a list of atom, lat, ask two questions about it:        ;
+; ; (null? lat) and else.                                                     ;
+; ; when recurring on a number n, ask two questions about it:                 ;
+; ; (zero? n) and else.                                                       ;
+; ----------------------------------------------------------------------------.

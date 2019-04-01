@@ -1,11 +1,11 @@
 ; Chapter 3 cons the magnificent
 ;
-; define atom?
+; define atom? from chapter 02
 ;
 (define atom?
   (lambda (l)
     (and (not (pair? l)) (not (null? l)))))
-; define lat?
+; define lat? from chapter 02
 ;
 (define lat?
   (lambda (l)
