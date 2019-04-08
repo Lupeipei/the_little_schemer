@@ -1,4 +1,4 @@
-; chapter 6 Shadows
+; chapter 06 Shadows
 ;
 ; define atom? from chapter 02
 ;
