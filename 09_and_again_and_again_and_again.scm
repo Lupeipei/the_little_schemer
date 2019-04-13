@@ -302,16 +302,16 @@
 ;
 ; rewrite length<=1 in the same style
 ;
-((lambda (f)
+((lambda (length)
   (lambda (l)
     (cond
       ((null? l) 0)
-      (else (add1 (f (cdr l)))))))
-  ((lambda (g)
+      (else (add1 (length (cdr l)))))))
+  ((lambda (length)
     (lambda (l)
       (cond
         ((null? l) 0)
-        (else (add1 (g (cdr l))))))) eternity))
+        (else (add1 (length (cdr l))))))) eternity))
 ;
 ; rewrite length<=2
 ;
@@ -472,3 +472,39 @@
               ((f f) x)))))))
 ;
 ; cool!
+; define operator x
+;
+(define x
+  (lambda (a b)
+    (cond
+      ((or (zero? a) (zero? b)) (quote 0))
+      (else (+ a (x a (sub1 b)))))))
+;
+(define F*
+ (lambda (func-arg)
+   (lambda (n)
+     (if (zero? n)
+         1
+         (* n (func-arg (sub1 n)))))))
+;
+(define Y
+ (lambda (F)
+   (let ((W (lambda (x)
+              (F (lambda arg (apply (x x) arg))))))
+     (W W))))
+;
+(define Fi
+  (lambda (func-arg)
+    (lambda (n)
+      (cond
+        ((zero? (sub1 n)) 1)
+        ((zero? (- n 2)) 1)
+        (else (+ (func-arg (sub1 n)) (func-arg (- n 2))))))))
+
+((Y F*) 10)
+
+((F* (Y F*)) 10)
+
+((Y Fi) 10)
+
+((Fi (Y Fi)) 10)
