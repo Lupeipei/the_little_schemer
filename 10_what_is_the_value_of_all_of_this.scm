@@ -102,7 +102,7 @@
       (else
         (lookup-in-entry name (car table)
                               (lambda (name)
-                                (lookup-in-entry name (cdr table) table-f)))))))
+                                (lookup-in-table name (cdr table) table-f)))))))
 ;
 ; examples of lookup-in-table, we use entry-help for table-f
 ;
@@ -135,7 +135,7 @@
       ((eq? e (quote zero?)) *const)
       ((eq? e (quote add1)) *const)
       ((eq? e (quote sub1)) *const)
-      ((eq? e (quote member?)) *const)
+      ((eq? e (quote number?)) *const)
       (else *identifier))))
 ;
 ; define list-to-action
@@ -177,7 +177,7 @@
       ((number? e) e)
       ((eq? e #t) #t)
       ((eq? e #f) #f)
-      (else (build (quote primitive) e))))
+      (else (build (quote primitive) e)))))
 ;
 ; define *quote
 ;
@@ -185,6 +185,7 @@
   (lambda (e table)
     (text-of e)))
 ;
+
 ; define text-of
 ;
 (define text-of second)
@@ -216,6 +217,7 @@
 ; define body-of
 (define body-of third)
 ;
+
 ; define evcon
 ;
 (define evcon
@@ -224,7 +226,7 @@
       ((else? (question-of (car lines)))
        (meaning (answer-of (car lines)) table))
       ((meaning (question-of (car lines)) table)
-       (meaning (answer-of (car lines) table)))
+       (meaning (answer-of (car lines)) table))
       (else (evcon (cdr lines) table)))))
 ;
 ; define else?
@@ -241,6 +243,7 @@
 ; define answer-of
 (define answer-of second)
 ;
+
 ; define *cond with evcon
 ;
 (define *cond
@@ -251,7 +254,8 @@
 (define cond-lines-of cdr)
 ;
 ; examples of *cond
-(*cond (quote (cond (coffee klatsch) (else party))) (quote ((((coffee) (#t)) ((klatsch party) (5 (6)))))))
+(*cond (quote (cond (coffee klatsch) (else party))) (quote (((coffee) (#t)) ((klatsch party) (5 (6))))))
+;Value: 5
 ;
 ; at last, *application
 ;
@@ -289,6 +293,7 @@
        (apply-primitive (second fun) vals))
        ((non-primitive? fun)
         (apply-closure (second fun) vals)))))
+;
 ;
 ; define primitive?
 ;
@@ -343,9 +348,10 @@
           (table-of closure)))))
 ;
 ; examples of value
-(value (car (quote (a b c))))
 (value 1)
-(value (quote (car (quote (a b c)))))
+;Value: 1
+
 (value (add1 6))
-(value (quote nothing))
+;Value: 7
+
 (value (quote ((lambda (nothing) (cons nothing ((quote ())))) (quote (from nothing comes something)))))
