@@ -452,7 +452,7 @@
       ((null? l) 0)
       (else (add1 (length (cdr l))))))))
 ;
-; remove length defination
+; remove length definition
 ;
 (lambda (le)
   ((lambda (mk-length)

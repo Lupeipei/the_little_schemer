@@ -104,7 +104,7 @@
 ; ----------------------------------------------------------------------------.
 ; ; the fourth commandment                                                    ;
 ; ; (first revision)                                                          ;
-; ; always change at least one arugment while recuring. it must be changed to ;
+; ; always change at least one argument while recuring. it must be changed to ;
 ; ; be closer to termination. The changing argument must be tested in the     ;
 ; ; termination condition:                                                    ;
 ; ; when using cdr, test termination with null?                               ;
@@ -135,7 +135,7 @@
 ; ; terminating line, for adding 0 does not change the value of an addition.  ;
 ; ; when building a value with x, always use 1 for the value of the           ;
 ; ; terminating line, for multiplying by 1 does not change the value of an    ;
-; ;addition.                                                                  ;
+; ; multiplicaition.                                                          ;
 ; ; when building a value with cons, always conside () for the value of the   ;
 ; ; value of the terminating line.                                            ;
 ; ----------------------------------------------------------------------------.
@@ -390,12 +390,3 @@
 ;
 (rempick 2 (quote (hotdogs with hot mustard)))
 ;Value: (hotdogs hot mustard)
-
-; ----------------------------------------------------------------------------.
-; ; the first commandment                                                     ;
-; ; (first revision)                                                          ;
-; ; when recurring on a list of atom, lat, ask two questions about it:        ;
-; ; (null? lat) and else.                                                     ;
-; ; when recurring on a number n, ask two questions about it:                 ;
-; ; (zero? n) and else.                                                       ;
-; ----------------------------------------------------------------------------.

@@ -194,7 +194,7 @@
 
 ; ----------------------------------------------------------------------------.
 ; ; the fourth commandment                                                    ;
-; ; always change at least one arugment while recuring. it must be changed to ;
+; ; always change at least one argument while recuring. it must be changed to ;
 ; ; be closer to termination. The changing argument must be tested in the     ;
 ; ; termination condition: when using cdr, test termination with null?        ;
 ; ----------------------------------------------------------------------------.

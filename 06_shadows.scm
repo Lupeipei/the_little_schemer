@@ -138,7 +138,7 @@
       ((eq? (quote ^) (operator nexp)) (expt (value (1st-sub-exp nexp)) (value (2nd-sub-exp nexp))))
       )))
 ;
-; then by changing the defination of operator and 1st-sub-exp , we can change function value
+; then by changing the definition of operator and 1st-sub-exp , we can change function value
 ;
 ; define 1st-sub-exp again
 ;

@@ -80,7 +80,7 @@
 ; ----------------------------------------------------------------------------.
 ; ; the fourth commandment                                                    ;
 ; ; (final revision)                                                          ;
-; ; always change at least one arugment while recuring. it must be changed to ;
+; ; always change at least one argument while recuring.                       ;
 ; ; when recurring on a list of atoms, lat, use (cdr lat). when recurring on  ;
 ; ; a number, use (sub1 n). and when recurring on a list of S-expressions, l  ;
 ; ; use (car l) and (cdr l) if neither (null? l) nor (atom? (car l)) are true ;

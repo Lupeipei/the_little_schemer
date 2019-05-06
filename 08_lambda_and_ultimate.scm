@@ -223,7 +223,7 @@
 ;
 ; ----------------------------------------------------------------------------.
 ; ; the ninth commandment                                                     ;
-; ; Abstract common patterns with a new functions.                            ;
+; ; Abstract common patterns with a new function.                            ;
 ; ----------------------------------------------------------------------------.
 
 ; functions from chapter 06 and chapter 04
