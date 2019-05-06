@@ -2,8 +2,6 @@ code snippets of the book《the little schemer》4th edition.
 
 this README is inspired by Peter Krumins's [the little schemer](<https://github.com/pkrumins/the-little-schemer>).
 
-The following contents are the summaries of every chapter I have written for a quickly overview.
-
 ### Contents
 =====================================================================================
 
@@ -19,11 +17,9 @@ The following contents are the summaries of every chapter I have written for a q
 * [chapter 10. What Is the Value of All of This?](#chapter-10-what-is-the-value-of-all-of-this)
 
 
-
-
 =====================================================================================
 
-#### chapter 01. Toys
+### chapter 01. Toys
 
 Introduce the basic concepts in scheme: atom, list and some primitive functions, such as car, cdr, cons, null?, eq? and ect.
 
@@ -65,7 +61,7 @@ Below are  the five rules that we should follow when using those primitives:
 
 =====================================================================================
 
-#### chapter 02. Do it do it again and again and again
+### chapter 02. Do it do it again and again and again
 
 With the implements and explanations of lat? and member? functions, we meet recursion. that's why this chapter is titled "do it, do it again, and again, and again". well, as you can guess,  we'll meet recursion frequently in the later chapters😄.
 
@@ -79,7 +75,7 @@ Also, we get the preliminary version of the first commandment in this chapter.
 
 =====================================================================================
 
-#### chapter 03. Cons the magnificent
+### chapter 03. Cons the magnificent
 
 Of course, as it is titled, we embrace cons in this chapter!😄
 
@@ -102,10 +98,9 @@ Then, with the definitions of insertR, insertL, subst and multiinsertR, multiins
 > always change at least one argument while recurring. it  must be changed to be closer to termination. The changing argument must be tested in the termination condition: when using cdr, test termination with null?
 
 
-
 =====================================================================================
 
-#### chapter 04. Numbers Games
+### chapter 04. Numbers Games
 
 This chapter is about numbers and primitive functions , such as add1, sub1, zero?, +, - etc.
 
@@ -148,7 +143,7 @@ Beside, operators like >, <, =, /, expt, length and pick also have been defined 
 
 =====================================================================================
 
-#### chapter 05. Oh My Gawd It's full of Stars
+### chapter 05. Oh My Gawd It's full of Stars
 
 Yes, this chapter is full of ✨✨✨.
 
@@ -191,7 +186,7 @@ and, also with the definition of eqlist? , equal?, the six commandment is stated
 
 =====================================================================================
 
-#### chapter 06. Shadows
+### chapter 06. Shadows
 
 Introduce the arithmetic expression.
 
@@ -215,7 +210,7 @@ in the later part of this chapter, a different type of list is introduced. Using
 
 =====================================================================================
 
-#### chapter 07. Friends and Relations
+### chapter 07. Friends and Relations
 
 Introduce the concepts of set and pair, also define some helper functions for each.
 
@@ -227,7 +222,7 @@ Yep, have fun!
 
 =====================================================================================
 
-#### chapter 08. Lambda the Ultimate
+### chapter 08. Lambda the Ultimate
 
 First, define member-f to show that a function can also return a function.
 
@@ -253,7 +248,7 @@ some more examples of collector are presented. you can also practice it for fun.
 
 =====================================================================================
 
-#### chapter 09. And Again and Again and Again
+### chapter 09. And Again and Again and Again
 
 This chapter is the most difficult part in this book, it is about the derivation of the Y-combinator.
 
@@ -263,7 +258,7 @@ I have written an article in Chinese, showing the complete derivation process. H
 
 =====================================================================================
 
-#### chapter 10. What Is the Value of All of This
+### chapter 10. What Is the Value of All of This
 
 this chapter complete  a preliminary version of scheme compiler,  parse scheme in scheme.
 
